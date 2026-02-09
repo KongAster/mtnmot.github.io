@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="th">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ทะเบียนแจ้งซ่อม</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;500;600;700&display=swap" rel="stylesheet" crossorigin="anonymous">
+    <link rel="manifest" href="/manifest.json" />
+    <meta name="theme-color" content="#4f46e5" />
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ['Sarabun', 'sans-serif'],
+              formal: ['"Angsana New"', '"TH Sarabun New"', 'Sarabun', 'serif'],
+            },
+            colors: {
+              brand: {
+                50: 'var(--brand-50)',
+                100: 'var(--brand-100)',
+                500: 'var(--brand-500)',
+                600: 'var(--brand-600)',
+                700: 'var(--brand-700)',
+                900: 'var(--brand-900)',
+              }
+            }
+          }
+        }
+      }
+    </script>
+    <style>
+      :root {
+        --brand-50: #eef2ff;
+        --brand-100: #e0e7ff;
+        --brand-500: #6366f1;
+        --brand-600: #4f46e5;
+        --brand-700: #4338ca;
+        --brand-900: #312e81;
+      }
+
+      body {
+        font-family: 'Sarabun', 'sans-serif';
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        text-rendering: optimizeLegibility;
+      }
+
+      /* CSS เฉพาะสำหรับการ Export เพื่อความแม่นยำสูง */
+      .pdf-mode {
+        line-height: 1.5 !important;
+        text-rendering: geometricPrecision !important;
+      }
+
+      .a4-page, .a4-page * {
+        outline: none !important;
+        box-shadow: none !important;
+        text-shadow: none !important;
+        -webkit-print-color-adjust: exact;
+      }
+
+      /* ป้องกันการตัดขอบตัวหนังสือด้านล่าง */
+      .a4-page td, .a4-page th, .a4-page p {
+        padding-bottom: 2px !important;
+        overflow: visible !important;
+      }
+
+      .scrollbar-hide::-webkit-scrollbar { display: none; }
+      .scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
+      
+      ::-webkit-scrollbar { width: 6px; height: 6px; }
+      ::-webkit-scrollbar-track { background: #f1f5f9; }
+      ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 4px; }
+      ::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
+      
+      .animate-fade-in { animation: fadeIn 0.4s ease-out forwards; }
+      @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+    </style>
+<script type="importmap">
+{
+  "imports": {
+    "react-dom/": "https://esm.sh/react-dom@^19.2.3/",
+    "recharts": "https://esm.sh/recharts@^3.6.0",
+    "xlsx": "https://esm.sh/xlsx@^0.18.5",
+    "lucide-react": "https://esm.sh/lucide-react@^0.562.0",
+    "file-saver": "https://esm.sh/file-saver@^2.0.5",
+    "vite": "https://esm.sh/vite@^7.3.1",
+    "react/": "https://esm.sh/react@^19.2.3/",
+    "react": "https://esm.sh/react@^19.2.3",
+    "html2canvas": "https://esm.sh/html2canvas@^1.4.1",
+    "@vitejs/plugin-react": "https://esm.sh/@vitejs/plugin-react@^5.1.2",
+    "jspdf": "https://esm.sh/jspdf@^4.0.0",
+    "docx": "https://esm.sh/docx@^9.5.1",
+    "@supabase/supabase-js": "https://esm.sh/@supabase/supabase-js@2.47.10",
+    "dom-to-image-more": "https://esm.sh/dom-to-image-more@^3.7.2",
+    "pptxgenjs": "https://esm.sh/pptxgenjs@3.12.0",
+    "tus-js-client": "https://esm.sh/tus-js-client@2.3.0",
+    "dexie": "https://esm.sh/dexie@^3.2.4"
+  }
+}
+</script>
+<link rel="stylesheet" href="/index.css">
+</head>
+  <body class="bg-slate-50 text-slate-900 h-screen overflow-hidden">
+    <div id="root" class="h-full"></div>
+    <script type="module" src="/index.tsx"></script>
+  </body>
+</html>
