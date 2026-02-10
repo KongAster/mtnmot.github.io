@@ -106,10 +106,12 @@ export const formatDate = (dateString: string | undefined | null) => {
     }
 };
 
+// --- Missing Definitions ---
+
 // FIX: Updated Enum values to match Database ('ดำเนินการ', 'ปิดงานแล้ว')
 export enum JobStatus {
   IN_PROGRESS = 'ดำเนินการ',
-  WAITING_INSPECTION = 'รอตรวจรับ', 
+  WAITING_INSPECTION = 'รอตรวจรับ', // NEW STATUS
   FINISHED = 'ปิดงานแล้ว',
   CANCELLED = 'ยกเลิก',
   UNREPAIRABLE = 'ซ่อมไม่ได้'
@@ -119,10 +121,10 @@ export enum JobStatus {
 export const JOB_STATUS_DISPLAY: Record<string, string> = {
   'ดำเนินการ': 'ดำเนินการ',
   'รอดำเนินการ': 'ดำเนินการ', // Legacy Support
-  'รอตรวจรับ': 'รอตรวจรับ', 
+  'รอตรวจรับ': 'รอตรวจรับ', // NEW
   'ปิดงานแล้ว': 'ปิดงานแล้ว',
   'เสร็จสิ้น': 'ปิดงานแล้ว', // Legacy Support
-  'ยกเลิก': 'ยกเลิก',
+  'ยกเลิก': 'ยกเลิกงาน', // CHANGED: "ยกเลิก" -> "ยกเลิกงาน"
   'ซ่อมไม่ได้': 'ซ่อมไม่ได้'
 };
 
@@ -170,7 +172,7 @@ export interface Job {
   technicianIds?: string[];
   costs?: CostItem[];
   attachments?: JobAttachment[];
-  repairGroup?: string; 
+  repairGroup?: string; // Changed to string to support dynamic groups
   department: string;
   assetId?: string;
   repairOrderNumber?: string;

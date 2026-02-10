@@ -229,6 +229,9 @@ create table if not exists public.standard_items (
 -- Index for querying Daily Expenses by Period and Division
 create index if not exists idx_daily_expenses_query on public.daily_expenses (year, month, division);
 
+-- Index for Standard Items
+create index if not exists idx_daily_expenses_standard_item on public.daily_expenses ("standardItemId");
+
 -- Index for fetching Standard Items by Division
 create index if not exists idx_standard_items_division on public.standard_items (division);
 
